@@ -15,11 +15,18 @@ meta:
 	json对象转json String：`JSON.stringify()`
 - 时间格式转换
 ```
-	let sdate = new Date(r.create_time).toJSON();
- let sdate2 = new Date(+new Date(sdate) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '');
+let sdate = new Date(r.create_time).toJSON();
+let sdate2 = new Date(+new Date(sdate) + 8 * 3600 * 1000).toISOString().replace(/T/g, ' ').replace(/\.[\d]{3}Z/, '');
  ```
 - 百分比计算
-	`Math.round(value/total*10000)/100.00`
+`Math.round(value/total*10000)/100.00`
+- base64转换
+```
+let string = window.atob(base64String);
+//直接atob会乱码，以下两行解决乱码问题
+string = escape(string);
+string = decodeURIComponent(string);
+```
 
 ## 实用三方库
 
